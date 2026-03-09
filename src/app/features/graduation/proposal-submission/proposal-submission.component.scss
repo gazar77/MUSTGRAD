@@ -1,0 +1,204 @@
+.proposal-page {
+    padding: 3rem 0 5rem;
+    min-height: calc(100vh - 200px);
+
+    .page-header {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h1 {
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #64748b;
+            font-size: 1.1rem;
+        }
+    }
+
+    .proposal-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+
+        @media (max-width: 992px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .card {
+        border: none;
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+        padding: 2.5rem;
+        background: #fff;
+    }
+
+    .form-group {
+        margin-bottom: 2rem;
+
+        label {
+            display: block;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+            color: #334155;
+            transition: all 0.2s;
+
+            &:focus {
+                outline: none;
+                border-color: var(--secondary-color);
+                box-shadow: 0 0 0 3px rgba(31, 165, 107, 0.1);
+            }
+        }
+
+        .readonly-input {
+            background: #e2e8f0;
+            cursor: not-allowed;
+            font-weight: 600;
+        }
+    }
+
+    .file-upload {
+        border: 2px dashed #cbd5e1;
+        background: #f8fafc;
+        padding: 3rem 2rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-bottom: 2rem;
+
+        &:hover {
+            border-color: var(--secondary-color);
+            background: rgba(31, 165, 107, 0.02);
+        }
+
+        .upload-content {
+            position: relative;
+
+            .icon {
+                font-size: 3rem;
+                display: block;
+                margin-bottom: 1rem;
+            }
+
+            p {
+                color: #64748b;
+                font-weight: 600;
+                margin-bottom: 1rem;
+            }
+
+            input[type="file"] {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: flex-end;
+
+        .btn {
+            padding: 0.8rem 2rem;
+            font-weight: 700;
+            border-radius: 8px;
+        }
+    }
+
+    /* Side Column */
+    .status-card {
+        margin-bottom: 2rem;
+        text-align: center;
+
+        h3 {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.5rem 2rem;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+
+            &.status-draft {
+                background: #fff8ec;
+                color: #f59e0b;
+            }
+        }
+
+        .deadline-timer {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+
+            p {
+                margin: 0 0 0.5rem;
+                color: #64748b;
+                font-size: 0.9rem;
+            }
+
+            .timer {
+                font-size: 1.5rem;
+                font-weight: 800;
+                color: #ef4444;
+                direction: ltr;
+            }
+        }
+    }
+
+    .info-card {
+        background: var(--primary-color);
+        color: white;
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 1rem;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            li {
+                position: relative;
+                padding-right: 1.5rem;
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+                opacity: 0.9;
+                line-height: 1.6;
+
+                &::before {
+                    content: '•';
+                    position: absolute;
+                    right: 0;
+                    color: var(--secondary-color);
+                    font-size: 1.5rem;
+                    line-height: 1;
+                }
+            }
+        }
+    }
+}

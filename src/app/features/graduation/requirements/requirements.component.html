@@ -1,0 +1,22 @@
+<div class="requirements-container container py-5">
+    <div class="card p-4">
+        <h2 class="text-primary mb-4 text-center">{{ title }}</h2>
+
+        <div class="alert alert-info">
+            <i class="fas fa-info-circle me-2"></i>
+            يرجى رفع جميع المستندات المطلوبة للمرحلة رقم {{ requirementNumber }} في ملف مضغوط واحد (ZIP) أو بصيغة PDF.
+        </div>
+
+        <div class="upload-section mt-5 text-center">
+            <div class="upload-box p-5 border-dashed">
+                <i class="fas fa-cloud-upload-alt fa-3x text-muted mb-3"></i>
+                <h4>قم بسحب الملف هنا أو اضغط للاختيار</h4>
+                <input type="file" (change)="onFileUpload($event)" class="file-input">
+            </div>
+
+            <div class="mt-4">
+                <button class="btn btn-primary btn-lg px-5">تسليم المتطلبات</button>
+            </div>
+        </div>
+    </div>
+</div>

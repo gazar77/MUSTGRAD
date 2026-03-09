@@ -1,0 +1,82 @@
+.idea-detail-page {
+    .text-navy {
+        color: #011835;
+    }
+
+    .text-green {
+        color: #1FA56B;
+    }
+
+    .bg-navy {
+        background-color: #011835;
+    }
+
+    .breadcrumb {
+        background: transparent;
+        padding: 0;
+
+        .breadcrumb-item {
+            font-size: 0.9rem;
+
+            &.active {
+                color: #1FA56B;
+                font-weight: 600;
+            }
+
+            a {
+                color: #64748b;
+                text-decoration: none;
+
+                &:hover {
+                    color: #011835;
+                }
+            }
+        }
+    }
+
+    .detail-card {
+        border: none;
+        border-radius: 12px;
+        border-top: 4px solid #1FA56B;
+    }
+
+    .sidebar-card {
+        border: none;
+        border-radius: 12px;
+
+        &.border-primary-left {
+            border-right: 4px solid #011835; // RTL: border-right is logical left
+        }
+    }
+
+    .bg-primary-soft {
+        background-color: rgba(1, 24, 53, 0.05);
+    }
+
+    .bg-success-soft {
+        background-color: rgba(31, 165, 107, 0.1);
+    }
+
+    .bg-warning-soft {
+        background-color: rgba(245, 158, 11, 0.1);
+    }
+
+    .bg-info-soft {
+        background-color: rgba(99, 102, 241, 0.1);
+    }
+
+    .skill-tag {
+        background: #f1f5f9;
+        color: #475569;
+        padding: 0.4rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid #e2e8f0;
+    }
+
+    .help-card {
+        border-radius: 12px;
+        border: none;
+    }
+}

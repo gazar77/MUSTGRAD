@@ -1,0 +1,156 @@
+// Bootstrap RTL Support for Forms, Grid, and Utility Classes
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.rtl.min.css');
+
+// MUST Branding Colors
+$primary-color: #011835;
+$secondary-color: #1FA56B;
+$background-color: #F7F9FC;
+$text-color: #1B1F2A;
+$white: #ffffff;
+$border-color: #e2e8f0;
+
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --background-color: #{$background-color};
+  --text-color: #{$text-color};
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: $background-color;
+  color: $text-color;
+  direction: rtl;
+  text-align: right;
+  margin: 0;
+}
+
+// Global Classes
+.bg-primary {
+  background-color: $primary-color;
+}
+
+.text-primary {
+  color: $primary-color;
+}
+
+.bg-secondary {
+  background-color: $secondary-color;
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.card {
+  background: $white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  border: 1px solid $border-color;
+}
+
+.btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  font-family: inherit;
+
+  &-primary {
+    background-color: $primary-color;
+    color: $white;
+
+    &:hover {
+      background-color: darken($primary-color, 5%);
+    }
+  }
+
+  &-secondary {
+    background-color: $secondary-color;
+    color: $white;
+
+    &:hover {
+      background-color: darken($secondary-color, 5%);
+    }
+  }
+}
+
+// Utility Classes
+.w-full {
+  width: 100% !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+.p-4 {
+  padding: 1.5rem !important;
+}
+
+.p-5 {
+  padding: 3rem !important;
+}
+
+.border-dashed {
+  border: 2px dashed $border-color;
+  border-radius: 8px;
+}
+
+// Global responsive fixes
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// A4 Container fix for small screens
+.a4-container {
+  width: 100%;
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+.a4-page {
+  @media (max-width: 210mm) {
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 10mm !important;
+  }
+}
+
+// Print Support
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  body {
+    background: white !important;
+  }
+}

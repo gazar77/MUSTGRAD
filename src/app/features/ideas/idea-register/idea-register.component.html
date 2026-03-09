@@ -1,0 +1,47 @@
+<div class="registration-container container py-5">
+    <div class="card p-4">
+        <h2 class="text-primary mb-4 text-center">تسجيل فكرة مشروع تخرج</h2>
+        <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">عنوان المشروع</label>
+                    <input type="text" class="form-control" name="title" [(ngModel)]="formData.title" required
+                        placeholder="أدخل عنوان المشروع">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">مجال المشروع</label>
+                    <select class="form-select" name="category" [(ngModel)]="formData.category" required>
+                        <option value="">اختر المجال</option>
+                        <option value="AI">ذكاء اصطناعي</option>
+                        <option value="Web">تطوير ويب</option>
+                        <option value="Mobile">تطبيقات موبايل</option>
+                        <option value="Cyber">أمن سيبراني</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">وصف المشروع</label>
+                <textarea class="form-control" name="description" [(ngModel)]="formData.description" rows="4" required
+                    placeholder="اكتب وصفاً مختصراً للمشروع"></textarea>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">اسم قائد الفريق</label>
+                    <input type="text" class="form-control" name="leaderName" [(ngModel)]="formData.leaderName"
+                        required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">الرقم الجامعي</label>
+                    <input type="text" class="form-control" name="leaderId" [(ngModel)]="formData.leaderId" required>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary px-5" [disabled]="!registerForm.form.valid">إرسال
+                    الطلب</button>
+            </div>
+        </form>
+    </div>
+</div>

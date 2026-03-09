@@ -1,0 +1,21 @@
+<div class="news-page container">
+    <header class="page-header">
+        <h1>الأخبار والإعلانات</h1>
+        <p>تابع آخر مستجدات مشاريع التخرج والتعليمات الهامة</p>
+    </header>
+
+    <div class="news-grid">
+        <div *ngFor="let item of newsItems" class="news-card card">
+            <div class="card-header">
+                <span class="category-badge" [ngClass]="item.category.toLowerCase()">{{ getCategoryArabic(item.category)
+                    }}</span>
+                <span class="date">{{ item.date | date:'yyyy/MM/dd' }}</span>
+            </div>
+            <h3 class="news-title">{{ item.title }}</h3>
+            <p class="news-content">{{ item.content }}</p>
+            <div class="card-footer">
+                <span class="author">بواسطة: {{ item.author }}</span>
+            </div>
+        </div>
+    </div>
+</div>

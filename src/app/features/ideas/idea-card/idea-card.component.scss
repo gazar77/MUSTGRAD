@@ -1,0 +1,142 @@
+.idea-card {
+    border: none;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #f1f5f9;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        border-color: rgba(31, 165, 107, 0.3);
+
+        .idea-title {
+            color: #1FA56B;
+        }
+    }
+
+    .card-header {
+        padding: 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .category-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #011835;
+        background: rgba(1, 24, 53, 0.05);
+        padding: 0.3rem 0.8rem;
+        border-radius: 50px;
+    }
+
+    .status-badge {
+        font-size: 0.7rem;
+        font-weight: 800;
+        padding: 0.3rem 0.8rem;
+        border-radius: 50px;
+    }
+
+    &.status-open .status-badge {
+        background: #eaf8f1;
+        color: #1FA56B;
+    }
+
+    &.status-reserved .status-badge {
+        background: #fff8ec;
+        color: #f59e0b;
+    }
+
+    &.status-approved .status-badge {
+        background: #f0f3ff;
+        color: #6366f1;
+    }
+
+    .idea-title {
+        padding: 0 1.25rem;
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #011835;
+        margin: 0 0 0.75rem;
+        transition: color 0.3s;
+    }
+
+    .idea-description {
+        padding: 0 1.25rem;
+        font-size: 0.9rem;
+        color: #64748b;
+        line-height: 1.6;
+        flex-grow: 1;
+        margin-bottom: 1.25rem;
+    }
+
+    .idea-meta {
+        padding: 1.25rem;
+        background: #f8fafc;
+        display: flex;
+        justify-content: space-between;
+        border-top: 1px solid #f1f5f9;
+
+        .meta-item {
+            .label {
+                font-size: 0.75rem;
+                color: #94a3b8;
+                display: block;
+                margin-bottom: 2px;
+            }
+
+            .value {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: #011835;
+            }
+
+            .difficulty {
+                &.easy {
+                    color: #10b981;
+                }
+
+                &.medium {
+                    color: #f59e0b;
+                }
+
+                &.hard {
+                    color: #ef4444;
+                }
+            }
+        }
+    }
+
+    .card-footer {
+        padding: 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn-primary {
+            background: #011835;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border-radius: 8px;
+
+            &:hover {
+                background: #1FA56B;
+            }
+        }
+
+        .team-size {
+            font-size: 0.8rem;
+            color: #64748b;
+            font-weight: 500;
+        }
+    }
+}

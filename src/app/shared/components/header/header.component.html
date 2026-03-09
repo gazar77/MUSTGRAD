@@ -1,0 +1,59 @@
+<header class="main-header no-print" [class.scrolled]="isScrolled">
+    <!-- Top Bar with Logo -->
+    <div class="header-top">
+        <div class="container header-top-content">
+            <div class="logo-section">
+                <img src="assets/must-logo.png" alt="MUST Logo" class="university-logo" routerLink="/dashboard">
+                <div class="titles">
+                    <h1>MISR UNIVERSITY</h1>
+                    <h2>FOR SCIENCE & TECHNOLOGY</h2>
+                </div>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button class="hamburger" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen"
+                aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="nav-bar" [class.mobile-open]="isMobileMenuOpen">
+        <div class="container nav-content">
+            <ul class="nav-list">
+                <li><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                        (click)="closeMobileMenu()">الرئيسية</a></li>
+                <li><a routerLink="/ideas" routerLinkActive="active" (click)="closeMobileMenu()">أفكار الدكاترة</a></li>
+                <li><a routerLink="/ideas/register" routerLinkActive="active" (click)="closeMobileMenu()">تسجيل فكرة
+                        مشروع</a></li>
+
+                <!-- Dropdown: التسليمات -->
+                <li class="has-dropdown" (mouseenter)="openDropdown('submissions')" (mouseleave)="closeDropdown()">
+                    <a href="javascript:void(0)" [class.active]="router.url.includes('/graduation-form')"
+                        (click)="toggleDropdown('submissions')">
+                        التسليمات <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" [class.show]="activeDropdown === 'submissions'">
+                        <li><a routerLink="/graduation-form/proposal" routerLinkActive="active"
+                                (click)="closeMobileMenu()">تسليم
+                                الـ Proposal</a></li>
+                        <li><a routerLink="/graduation-form/requirements-1" routerLinkActive="active"
+                                (click)="closeMobileMenu()">متطلبات المشروع (١)</a></li>
+                        <li><a routerLink="/graduation-form/requirements-2" routerLinkActive="active"
+                                (click)="closeMobileMenu()">متطلبات المشروع (٢)</a></li>
+                    </ul>
+                </li>
+
+                <li><a routerLink="/templates" routerLinkActive="active" (click)="closeMobileMenu()">النماذج
+                        والوثائق</a></li>
+                <li><a routerLink="/news/list" routerLinkActive="active" (click)="closeMobileMenu()">الأخبار</a></li>
+                <li><a routerLink="/events/calendar" routerLinkActive="active" (click)="closeMobileMenu()">الفعاليات</a>
+                </li>
+                <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>

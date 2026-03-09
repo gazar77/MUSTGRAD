@@ -1,0 +1,198 @@
+.events-page {
+  animation: fadeIn 0.5s ease-out;
+
+  .events-hero {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(30, 64, 175, 0.05) 100%);
+    padding: 4rem 0;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+
+      h1 {
+        font-size: 2.5rem;
+        color: var(--text-color);
+        margin-bottom: 1rem;
+        font-weight: 700;
+        background: linear-gradient(to right, #60a5fa, #3b82f6);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      p {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .events-section {
+    padding-bottom: 5rem;
+  }
+
+  .events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .event-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      border-color: rgba(59, 130, 246, 0.3);
+
+      .event-image img {
+        transform: scale(1.05);
+      }
+    }
+
+    .event-image {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .category-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        padding: 0.4rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        backdrop-filter: blur(8px);
+        color: #fff;
+        z-index: 2;
+
+        &.academic {
+          background: rgba(59, 130, 246, 0.8);
+          border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        &.workshop {
+          background: rgba(16, 185, 129, 0.8);
+          border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        &.social {
+          background: rgba(245, 158, 11, 0.8);
+          border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+        &.competition {
+          background: rgba(139, 92, 246, 0.8);
+          border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background: linear-gradient(to top, var(--bg-card) 0%, transparent 100%);
+        pointer-events: none;
+      }
+    }
+
+    .event-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+
+      .event-meta {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+        color: var(--primary-light);
+
+        .meta-item {
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+
+          i {
+            color: var(--primary-color);
+          }
+        }
+      }
+
+      .event-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+        color: var(--text-color);
+        line-height: 1.4;
+      }
+
+      .event-desc {
+        color: var(--text-light);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .event-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+
+        .location {
+          font-size: 0.85rem;
+          color: var(--text-light);
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+
+          i {
+            color: #ef4444;
+          }
+        }
+
+        .btn-outline {
+          padding: 0.4rem 1rem;
+          font-size: 0.85rem;
+          border: 1px solid var(--primary-color);
+          color: var(--primary-color);
+          background: transparent;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all 0.2s;
+
+          &:hover {
+            background: var(--primary-color);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

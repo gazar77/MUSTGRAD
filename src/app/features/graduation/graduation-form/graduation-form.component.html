@@ -1,0 +1,95 @@
+<div class="graduation-form-page container">
+    <div class="no-print actions-bar">
+        <button class="btn btn-primary" onclick="window.print()">
+            <i class="icon-print"></i> طباعة الاستمارة (A4)
+        </button>
+        <p class="hint">ملاحظة: تأكد من تمكين خيار "رسومات الخلفية" في إعدادات الطباعة للحصول على أفضل نتيجة.</p>
+    </div>
+
+    <div class="a4-container">
+        <div class="a4-page shadow">
+            <!-- Header -->
+            <div class="form-header">
+                <div class="uni-info">
+                    <h3>جامعة مصر للعلوم والتكنولوجيا</h3>
+                    <h4>كلية الحاسبات والمعلومات</h4>
+                    <h5>قسم {{ projectInfo.department }}</h5>
+                </div>
+                <div class="logo-placeholder">
+                    <img src="assets/must-logo.png" alt="Logo">
+                </div>
+                <div class="form-title">
+                    <h2>استمارة تسجيل مشروع التخرج</h2>
+                    <p>للعام الجامعي 2025 / 2026</p>
+                </div>
+            </div>
+
+            <!-- Project Main Info -->
+            <div class="form-section">
+                <h3 class="section-title">بيانات المشروع</h3>
+                <div class="data-row">
+                    <span class="label">اسم المشروع:</span>
+                    <span class="value underline">{{ projectInfo.title }}</span>
+                </div>
+                <div class="data-row">
+                    <span class="label">القسم:</span>
+                    <span class="value underline">{{ projectInfo.department }}</span>
+                </div>
+            </div>
+
+            <!-- Students Info -->
+            <div class="form-section">
+                <h3 class="section-title">بيانات أعضاء الفريق</h3>
+                <table class="students-table">
+                    <thead>
+                        <tr>
+                            <th>م</th>
+                            <th>اسم الطالب</th>
+                            <th>الرقم الجامعي</th>
+                            <th>القسم</th>
+                            <th>التوقيع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of projectInfo.students; let i = index">
+                            <td>{{ i + 1 }}</td>
+                            <td>{{ student.name }}</td>
+                            <td>{{ student.id }}</td>
+                            <td>{{ student.department }}</td>
+                            <td class="sig-space"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Supervisor Info -->
+            <div class="form-section">
+                <h3 class="section-title">إشراف المشروع</h3>
+                <div class="data-row">
+                    <span class="label">اسم الدكتور المشرف:</span>
+                    <span class="value underline">{{ projectInfo.supervisorName }}</span>
+                </div>
+                <div class="signature-boxes">
+                    <div class="sig-box">
+                        <p>توقيع الدكتور المشرف</p>
+                        <div class="space"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dean Approval -->
+            <div class="dean-approval form-section">
+                <div class="dean-box">
+                    <p>عميدة الكلية</p>
+                    <strong>أ.د. إيمان</strong>
+                    <div class="space"></div>
+                    <p class="stamp">ختم الكلية</p>
+                </div>
+            </div>
+
+            <div class="form-footer">
+                <p>تاريخ الطباعة: {{ today | date:'yyyy/MM/dd' }}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+.registration-container {
+    max-width: 800px;
+    margin: 0 auto;
+
+    .card {
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: none;
+        background: #fff;
+    }
+
+    h2 {
+        font-weight: 700;
+        color: #011835;
+    }
+
+    .form-label {
+        color: #444;
+        font-weight: 500;
+    }
+
+    .form-control,
+    .form-select {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        padding: 0.75rem;
+
+        &:focus {
+            border-color: #1FA56B;
+            box-shadow: 0 0 0 0.2rem rgba(31, 165, 107, 0.25);
+        }
+    }
+
+    .btn-primary {
+        background-color: #1FA56B;
+        border-color: #1FA56B;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+
+        &:hover {
+            background-color: #168a58;
+            border-color: #168a58;
+        }
+    }
+}

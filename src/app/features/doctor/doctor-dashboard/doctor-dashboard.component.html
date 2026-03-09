@@ -1,0 +1,55 @@
+<div class="doctor-dashboard container">
+    <header class="page-header">
+        <h1>لوحة تحكم الدكتور</h1>
+        <p>إدارة مشاريع التخرج ومقترحات الطلاب</p>
+    </header>
+
+    <section class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-value">5</div>
+            <div class="stat-label">المشاريع المقترحة</div>
+        </div>
+        <div class="stat-card highlight-reserved">
+            <div class="stat-value">2</div>
+            <div class="stat-label">مشاريع في انتظار المراجعة</div>
+        </div>
+    </section>
+
+    <div class="dashboard-sections">
+        <section class="card">
+            <div class="card-header">
+                <h3>أفكار مشاريعي</h3>
+                <button class="btn btn-secondary" routerLink="/doctor/ideas/new">+ إضافة فكرة جديدة</button>
+            </div>
+
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>عنوان المشروع</th>
+                        <th>الحالة</th>
+                        <th>الفريق</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>نظام إدارة مشاريع التخرج الذكي</td>
+                        <td><span class="badge status-open">متاح</span></td>
+                        <td>---</td>
+                        <td>
+                            <button class="btn-icon">تعديل</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>تطبيق مراقبة الصحة</td>
+                        <td><span class="badge status-reserved">محجوز</span></td>
+                        <td>فريق أحمد علي</td>
+                        <td>
+                            <button class="btn btn-primary btn-sm">مراجعة الـ Proposal</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>
