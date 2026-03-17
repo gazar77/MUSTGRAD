@@ -1,5 +1,4 @@
 <header class="main-header no-print" [class.scrolled]="isScrolled">
-    <!-- Top Bar with Logo -->
     <div class="header-top">
         <div class="container header-top-content">
             <div class="logo-section">
@@ -10,49 +9,51 @@
                 </div>
             </div>
 
-            <!-- Mobile Hamburger -->
             <button class="hamburger" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen"
                 aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </button>
         </div>
     </div>
 
-    <!-- Navigation Bar -->
     <nav class="nav-bar" [class.mobile-open]="isMobileMenuOpen">
         <div class="container nav-content">
-            <ul class="nav-list">
-                <li><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-                        (click)="closeMobileMenu()">الرئيسية</a></li>
-                <li><a routerLink="/ideas" routerLinkActive="active" (click)="closeMobileMenu()">أفكار الدكاترة</a></li>
-                <li><a routerLink="/ideas/register" routerLinkActive="active" (click)="closeMobileMenu()">تسجيل فكرة
-                        مشروع</a></li>
+            <ul class="nav-list" *ngIf="currentUser">
+                <!-- Student View -->
+                <ng-container *ngIf="currentUser.role !== 'Admin'">
+                    <li><a routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">الرئيسية</a></li>
+                    <li><a routerLink="/ideas" routerLinkActive="active" (click)="closeMobileMenu()">أفكار المشاريع</a></li>
+                    <li><a routerLink="/news/list" routerLinkActive="active" (click)="closeMobileMenu()">جدول المناقشات</a></li>
+                    <li><a routerLink="/events/calendar" routerLinkActive="active" (click)="closeMobileMenu()">فعاليات المشاريع</a></li>
+                    <li class="has-dropdown" [class.active]="isSubmissionActive">
+                        <a href="javascript:void(0)" class="dropbtn" (click)="toggleDropdown('submission')">
+                            المقترحات والتسجيل <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" [class.show]="isDropdownOpen('submission')">
+                            <li><a routerLink="/proposal" (click)="closeMobileMenu()">البروبوزال</a></li>
+                            <li><a routerLink="/project-registration-1" (click)="closeMobileMenu()">تسجيل مشروع 1</a></li>
+                            <li><a routerLink="/project-registration-2" (click)="closeMobileMenu()">تسجيل مشروع 2</a></li>
+                        </ul>
+                    </li>
+                    <li><a routerLink="/templates" routerLinkActive="active" (click)="closeMobileMenu()">النماذج والوثائق</a></li>
+                    <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">اتصل بنا</a></li>
+                </ng-container>
 
-                <!-- Dropdown: التسليمات -->
-                <li class="has-dropdown" (mouseenter)="openDropdown('submissions')" (mouseleave)="closeDropdown()">
-                    <a href="javascript:void(0)" [class.active]="router.url.includes('/graduation-form')"
-                        (click)="toggleDropdown('submissions')">
-                        التسليمات <i class="fas fa-chevron-down"></i>
-                    </a>
-                    <ul class="dropdown-menu" [class.show]="activeDropdown === 'submissions'">
-                        <li><a routerLink="/graduation-form/proposal" routerLinkActive="active"
-                                (click)="closeMobileMenu()">تسليم
-                                الـ Proposal</a></li>
-                        <li><a routerLink="/graduation-form/requirements-1" routerLinkActive="active"
-                                (click)="closeMobileMenu()">متطلبات المشروع (١)</a></li>
-                        <li><a routerLink="/graduation-form/requirements-2" routerLinkActive="active"
-                                (click)="closeMobileMenu()">متطلبات المشروع (٢)</a></li>
-                    </ul>
-                </li>
+                <!-- Admin Management Links -->
+                <ng-container *ngIf="currentUser.role === 'Admin'">
+                    <li><a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMobileMenu()">لوحة الإدارة</a></li>
+                    <li><a routerLink="/ideas" routerLinkActive="active" (click)="closeMobileMenu()">تصفح المشاريع</a></li>
+                    <li><a routerLink="/admin/manage/news" routerLinkActive="active" (click)="closeMobileMenu()">إدارة التحديثات</a></li>
+                    <li><a routerLink="/admin/manage/events" routerLinkActive="active" (click)="closeMobileMenu()">إدارة الفعاليات</a></li>
+                    <li><a routerLink="/admin/manage/templates" routerLinkActive="active" (click)="closeMobileMenu()">إدارة النماذج</a></li>
+                </ng-container>
 
-                <li><a routerLink="/templates" routerLinkActive="active" (click)="closeMobileMenu()">النماذج
-                        والوثائق</a></li>
-                <li><a routerLink="/news/list" routerLinkActive="active" (click)="closeMobileMenu()">الأخبار</a></li>
-                <li><a routerLink="/events/calendar" routerLinkActive="active" (click)="closeMobileMenu()">الفعاليات</a>
-                </li>
-                <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">اتصل بنا</a></li>
+                <li class="auth-btn"><a href="javascript:void(0)" (click)="logout()">تسجيل خروج</a></li>
+            </ul>
+
+            <ul class="nav-list" *ngIf="!currentUser">
+                <li><a routerLink="/auth/login" routerLinkActive="active" (click)="closeMobileMenu()">تسجيل الدخول</a></li>
+                <li><a routerLink="/auth/register" routerLinkActive="active" (click)="closeMobileMenu()">إنشاء حساب</a></li>
             </ul>
         </div>
     </nav>

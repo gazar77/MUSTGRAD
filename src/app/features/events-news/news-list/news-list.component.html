@@ -1,21 +1,50 @@
-<div class="news-page container">
-    <header class="page-header">
-        <h1>الأخبار والإعلانات</h1>
-        <p>تابع آخر مستجدات مشاريع التخرج والتعليمات الهامة</p>
-    </header>
+<div class="news-list-container">
+    <div class="section-header">
+        <div class="title-meta">
+            <h1>جدول المناقشات والتحديثات</h1>
+            <p>تابع آخر المواعيد والإعلانات الرسمية للقسم</p>
+        </div>
+        <button *ngIf="currentUser?.role === 'Admin'" (click)="onAddNews()" class="btn btn-primary add-news-btn">
+            <i class="fas fa-plus"></i>
+            إضافة إعلان جديد
+        </button>
+    </div>
 
+    <!-- Announcement Grid -->
     <div class="news-grid">
-        <div *ngFor="let item of newsItems" class="news-card card">
+        <div class="news-card" *ngFor="let item of newsItems">
             <div class="card-header">
-                <span class="category-badge" [ngClass]="item.category.toLowerCase()">{{ getCategoryArabic(item.category)
-                    }}</span>
-                <span class="date">{{ item.date | date:'yyyy/MM/dd' }}</span>
+                <div class="date-badge">
+                    <span class="day">{{ item.date | date:'dd' }}</span>
+                    <span class="month">{{ item.date | date:'MMM' }}</span>
+                </div>
+                <div class="category-tag" [ngClass]="item.category.toLowerCase()">
+                    {{ getCategoryArabic(item.category) }}
+                </div>
             </div>
-            <h3 class="news-title">{{ item.title }}</h3>
-            <p class="news-content">{{ item.content }}</p>
+
+            <div class="card-body">
+                <h3 class="news-title">{{ item.title }}</h3>
+                <p class="news-excerpt">{{ item.content }}</p>
+            </div>
+
             <div class="card-footer">
-                <span class="author">بواسطة: {{ item.author }}</span>
+                <div class="author-info">
+                    <i class="fas fa-user-edit"></i>
+                    <span>بواسطة: {{ item.author }}</span>
+                </div>
+                <button class="details-link">
+                    عرض التفاصيل
+                    <i class="fas fa-chevron-left"></i>
+                </button>
             </div>
         </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="newsItems.length === 0">
+        <i class="fas fa-calendar-times"></i>
+        <h3>لا توجد إعلانات حالياً</h3>
+        <p>يرجى مراجعة الصفحة لاحقاً لمتابعة آخر التحديثات.</p>
     </div>
 </div>

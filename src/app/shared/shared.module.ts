@@ -6,11 +6,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
+import { ManagementModalComponent } from './components/management-modal/management-modal.component';
+
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SidebarComponent
+    SidebarComponent,
+    ManagementModalComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +25,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     HeaderComponent,
     FooterComponent,
     SidebarComponent,
+    ManagementModalComponent,
     CommonModule,
     RouterModule,
     ReactiveFormsModule,

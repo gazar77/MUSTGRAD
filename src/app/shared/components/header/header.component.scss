@@ -163,9 +163,17 @@ $light-gray: #e2e8f0;
 
     // Dropdown parent hover => rotate chevron AND show menu
     &.has-dropdown {
+      position: relative;
 
-      &:hover>a i,
-      >a[class*="active"] i {
+      .dropbtn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        i { font-size: 0.8rem; transition: 0.3s; }
+      }
+
+      &:hover .dropbtn i,
+      .dropbtn[class*="active"] i {
         transform: rotate(180deg);
       }
 

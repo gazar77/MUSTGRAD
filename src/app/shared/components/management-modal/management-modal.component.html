@@ -1,0 +1,38 @@
+<div class="modal-overlay" *ngIf="isOpen" (click)="onClose()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h2>{{ title }}</h2>
+      <button class="close-btn" (click)="onClose()">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+      <div class="form-group" *ngFor="let field of fields">
+        <label [for]="field.name">{{ field.label }}</label>
+        
+        <input *ngIf="field.type === 'text'" 
+               type="text" 
+               [id]="field.name" 
+               [(ngModel)]="formData[field.name]" 
+               class="form-control" [placeholder]="'أدخل ' + field.label">
+               
+        <textarea *ngIf="field.type === 'textarea'" 
+                  [id]="field.name" 
+                  [(ngModel)]="formData[field.name]" 
+                  class="form-control" rows="4" [placeholder]="'أدخل ' + field.label"></textarea>
+                  
+        <select *ngIf="field.type === 'select'" 
+                [id]="field.name" 
+                [(ngModel)]="formData[field.name]" 
+                class="form-select">
+          <option value="" disabled selected>اختر {{ field.label }}</option>
+          <option *ngFor="let opt of field.options" [value]="opt">{{ opt }}</option>
+        </select>
+      </div>
+    </div>
+    
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="onClose()">إلغاء</button>
+      <button class="btn btn-primary" (click)="onSave()">حفظ البيانات</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="event-details-container" *ngIf="!loading && event">
+    <!-- Hero Section -->
+    <section class="hero-section" [style.background-image]="'url(' + event.image + ')'">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <span class="category-badge">{{ getCategoryLabel(event.category) }}</span>
+            <h1 class="event-title">{{ event.title }}</h1>
+            <div class="quick-meta">
+                <span class="meta-item"><i class="fas fa-calendar-alt"></i> {{ event.date | date:'fullDate' }}</span>
+                <span class="meta-item"><i class="fas fa-map-marker-alt"></i> {{ event.location }}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <div class="main-wrapper">
+        <div class="content-grid">
+            <!-- Left: Description & Info -->
+            <div class="details-card main-info">
+                <h3>وصف الفعالية</h3>
+                <p class="description">{{ event.description }}</p>
+                
+                <div class="organizer-info">
+                    <div class="label">الجهة المنظمة:</div>
+                    <div class="value">{{ event.organizer || 'كلية تكنولوجيا المعلومات' }}</div>
+                </div>
+
+                <div class="action-bar">
+                    <button class="btn btn-primary register-btn">
+                        <i class="fas fa-user-plus"></i>
+                        تسجيل الحضور الآن
+                    </button>
+                    <button class="btn btn-outline share-btn">
+                        <i class="fas fa-share-alt"></i>
+                        مشاركة
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Schedule & Location -->
+            <aside class="side-info">
+                <div class="details-card info-card">
+                    <h3>موعد الفعالية</h3>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span>الوقت</span>
+                            <strong>{{ event.time }}</strong>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <div>
+                            <span>الموقع</span>
+                            <strong>{{ event.location }}</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details-card notes-card">
+                    <h3>ملاحظات هامة</h3>
+                    <ul>
+                        <li>يرجى الحضور قبل الموعد بـ 15 دقيقة.</li>
+                        <li>إحضار كارنيه الجامعة شرط أساسي للدخول.</li>
+                        <li>الالتزام بالزي الرسمي لطلاب مشاريع التخرج.</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<div class="loading-state" *ngIf="loading">
+    <div class="spinner"></div>
+</div>
+
+<div class="error-state" *ngIf="!loading && !event">
+    <i class="fas fa-exclamation-triangle"></i>
+    <h2>عذراً، لم يتم العثور على الفعالية</h2>
+    <button routerLink="/events" class="btn btn-primary">العودة للفعاليات</button>
+</div>

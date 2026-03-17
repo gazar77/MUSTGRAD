@@ -1,0 +1,18 @@
+<div class="admin-management-page container py-4">
+    <app-management-table 
+        [title]="title" 
+        [items]="items" 
+        [columns]="columns"
+        (add)="onAdd()"
+        (delete)="onDelete($event)">
+    </app-management-table>
+
+    <!-- Management Modal -->
+    <app-management-modal 
+        [isOpen]="modalConfig.isOpen" 
+        [title]="modalConfig.title" 
+        [fields]="modalConfig.fields"
+        (close)="modalConfig.isOpen = false"
+        (save)="handleSave($event)">
+    </app-management-modal>
+</div>

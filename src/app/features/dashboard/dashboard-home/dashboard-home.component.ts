@@ -15,23 +15,27 @@ export class DashboardHomeComponent implements OnInit, OnDestroy {
   currentSlide = 0;
   private slideInterval: any;
 
-  slides: SlideItem[] = [
-    {
-      image: 'assets/slider-1.png',
-      title: 'مناقشات مشاريع التخرج',
-      description: 'نماذج من مناقشات مشاريع التخرج السابقة بكلية الحاسبات والمعلومات'
-    },
-    {
-      image: 'assets/slider-2-new.png',
-      title: 'عروض المشاريع',
-      description: 'طلابنا يقدمون مشاريعهم أمام لجان التحكيم والإشراف'
-    },
-    {
-      image: 'assets/slider-3-new.png',
-      title: 'تخريج دفعة جديدة',
-      description: 'احتفال بنجاح طلابنا في مشاريع التخرج'
-    }
-  ];
+  slides: SlideItem[];
+
+  constructor() {
+    this.slides = [
+      {
+        image: 'assets/must_discussion_1.png',
+        title: 'بوابة مشاريع التخرج',
+        description: 'المنصة المتكاملة لإدارة ومتابعة مشاريع التخرج بكلية الحاسبات والمعلومات - جامعة مصر للعلوم والتكنولوجيا'
+      },
+      {
+        image: 'assets/must_discussion_2.png',
+        title: 'أفكار مشاريع مبتكرة',
+        description: 'استكشف أحدث الأفكار والتقنيات المقترحة لمشاريع التخرج لهذا العام'
+      },
+      {
+        image: 'assets/must_discussion_3.png',
+        title: 'مستقبلك يبدأ من هنا',
+        description: 'سجل مشروعك وتابع خطوات النجاح مع نخبة من أفضل الأساتذة والخبراء'
+      }
+    ];
+  }
 
   ngOnInit(): void {
     this.startAutoPlay();

@@ -24,9 +24,9 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary w-full" [disabled]="loginForm.invalid || isLoading">
-                <span *ngIf="!isLoading">دخول</span>
-                <span *ngIf="isLoading">جاري التحميل...</span>
+            <button type="submit" class="btn btn-primary w-full" [disabled]="loginForm.invalid || loading">
+                <span *ngIf="!loading">دخول</span>
+                <span *ngIf="loading">جاري التحميل...</span>
             </button>
 
             <div class="auth-links">

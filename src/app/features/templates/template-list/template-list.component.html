@@ -5,34 +5,20 @@
     </header>
 
     <div class="templates-grid">
-        <div class="template-card card">
-            <div class="template-icon">📄</div>
-            <div class="template-info">
-                <h3>قالب المقترح (Proposal Template)</h3>
-                <p>النموذج الرسمي لكتابة مقترح مشروع التخرج.</p>
-                <span class="version">آخر تحديث: 2026/02/15</span>
+        <div *ngFor="let template of templates" class="template-card card">
+            <div class="template-icon">
+                <i class="fas" [ngClass]="{
+                    'fa-file-word': template.type === 'DOCX',
+                    'fa-file-powerpoint': template.type === 'PPTX',
+                    'fa-file-pdf': template.type === 'PDF'
+                }"></i>
             </div>
-            <a href="#" class="btn btn-secondary">تحميل (DOCX)</a>
-        </div>
-
-        <div class="template-card card">
-            <div class="template-icon">📊</div>
             <div class="template-info">
-                <h3>قالب العرض التقديمي (PPT Template)</h3>
-                <p>التصميم المعتمد للعروض التقديمية للمناقشات.</p>
-                <span class="version">آخر تحديث: 2026/01/10</span>
+                <h3>{{ template.title }}</h3>
+                <p>{{ template.description }}</p>
+                <span class="version">آخر تحديث: {{ template.version }}</span>
             </div>
-            <a href="#" class="btn btn-secondary">تحميل (PPTX)</a>
-        </div>
-
-        <div class="template-card card">
-            <div class="template-icon">📚</div>
-            <div class="template-info">
-                <h3>دليل التوثيق (IEEE Citation Guide)</h3>
-                <p>دليل شامل لكيفية كتابة المراجع بطريقة IEEE.</p>
-                <span class="version">آخر تحديث: 2025/12/01</span>
-            </div>
-            <a href="#" class="btn btn-secondary">تحميل (PDF)</a>
+            <a [href]="template.url" class="btn btn-secondary">تحميل ({{ template.type }})</a>
         </div>
     </div>
 </div>

@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewsListComponent } from './news-list/news-list.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 const routes: Routes = [
   { path: 'list', component: NewsListComponent },
   { path: 'calendar', component: EventListComponent },
+  { path: 'details/:id', component: EventDetailsComponent },
   { path: '', component: NewsListComponent }
 ];
 

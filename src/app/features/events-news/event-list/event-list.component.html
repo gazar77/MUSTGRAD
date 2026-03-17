@@ -3,8 +3,8 @@
   <header class="events-hero">
     <div class="container">
       <div class="hero-content">
-        <h1>الفعاليات والأحداث</h1>
-        <p>تابع أحدث المؤتمرات، ورش العمل، ومناقشات مشاريع التخرج في كلية الحاسبات والمعلومات.</p>
+        <h1>فعاليات مشاريع التخرج</h1>
+        <p>تابع أحدث المؤتمرة، ورش العمل، ومناقشات مشاريع التخرج في كلية الحاسبات والمعلومات.</p>
       </div>
     </div>
   </header>
@@ -20,14 +20,14 @@
           </div>
           <div class="event-content">
             <div class="event-meta">
-              <span class="meta-item"><i class="fas fa-calendar-alt"></i> {{ event.date }}</span>
-              <span class="meta-item"><i class="fas fa-clock"></i> {{ event.time }}</span>
+               <span class="meta-item"><i class="fas fa-calendar-alt"></i> {{ event.date }}</span>
+               <span class="meta-item"><i class="fas fa-clock"></i> {{ event.time }}</span>
             </div>
             <h3 class="event-title">{{ event.title }}</h3>
             <p class="event-desc">{{ event.description }}</p>
             <div class="event-footer">
-              <span class="location"><i class="fas fa-map-marker-alt"></i> {{ event.location }}</span>
-              <button class="btn btn-outline">التفاصيل</button>
+               <span class="location"><i class="fas fa-map-marker-alt"></i> {{ event.location }}</span>
+               <button class="btn btn-outline" [routerLink]="['/events/details', event.id]">التفاصيل</button>
             </div>
           </div>
         </article>

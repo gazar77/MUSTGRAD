@@ -4,11 +4,13 @@ import { SharedModule } from '../../shared/shared.module';
 import { EventsNewsRoutingModule } from './events-news-routing.module';
 import { NewsListComponent } from './news-list/news-list.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
 
 @NgModule({
   declarations: [
     NewsListComponent,
-    EventListComponent
+    EventListComponent,
+    EventDetailsComponent
   ],
   imports: [
     CommonModule,

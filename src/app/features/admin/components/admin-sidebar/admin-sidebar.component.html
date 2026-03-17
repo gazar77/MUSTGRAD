@@ -1,0 +1,47 @@
+<aside class="admin-sidebar" [class.collapsed]="isCollapsed">
+  <div class="sidebar-header">
+    <img src="assets/must-logo.png" alt="Logo">
+    <span *ngIf="!isCollapsed">لوحة التحكم</span>
+  </div>
+
+  <nav class="sidebar-nav">
+    <ul>
+      <li>
+        <a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+          <i class="fas fa-th-large"></i> <span *ngIf="!isCollapsed">الرئيسية</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/manage/ideas" routerLinkActive="active">
+          <i class="fas fa-lightbulb"></i> <span *ngIf="!isCollapsed">إدارة المشاريع</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/manage/news" routerLinkActive="active">
+          <i class="fas fa-newspaper"></i> <span *ngIf="!isCollapsed">إدارة التحديثات</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/manage/events" routerLinkActive="active">
+          <i class="fas fa-calendar-alt"></i> <span *ngIf="!isCollapsed">إدارة الفعاليات</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/manage/templates" routerLinkActive="active">
+          <i class="fas fa-file-download"></i> <span *ngIf="!isCollapsed">إدارة النماذج</span>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/admin/users" routerLinkActive="active">
+          <i class="fas fa-users"></i> <span *ngIf="!isCollapsed">المستخدمين</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i> <span *ngIf="!isCollapsed">تسجيل الخروج</span>
+    </button>
+  </div>
+</aside>

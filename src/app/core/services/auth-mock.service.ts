@@ -26,14 +26,15 @@ export class AuthMockService {
     // POST /api/auth/login
 
     // Simulate API call
+    const isAdmin = email === 'admin@must.edu.eg';
     return of({
       user: {
-        id: 1,
-        name: 'أحمد الطالب',
+        id: isAdmin ? 999 : 1,
+        name: isAdmin ? 'مدير النظام' : 'أحمد الطالب',
         email: email,
-        role: 'Student' as const,
-        department: 'CS' as const
-      },
+        role: isAdmin ? 'Admin' : 'Student',
+        department: 'CS'
+      } as User,
       token: 'fake-jwt-token-' + Math.random()
     }).pipe(
       delay(1000),

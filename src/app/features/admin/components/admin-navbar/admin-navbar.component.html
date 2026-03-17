@@ -1,0 +1,27 @@
+<nav class="admin-navbar">
+  <div class="nav-left">
+    <button class="toggle-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="breadcrumbs">
+      <span class="root">الإدارة</span>
+      <i class="fas fa-chevron-left sep"></i>
+      <span class="current">{{ pageTitle }}</span>
+    </div>
+  </div>
+
+  <div class="nav-right">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="بحث...">
+    </div>
+    
+    <div class="admin-profile" *ngIf="currentUser">
+      <div class="info">
+        <span class="name">{{ currentUser.name }}</span>
+        <span class="role">مدير النظام</span>
+      </div>
+      <img src="assets/default-avatar.png" alt="Avatar">
+    </div>
+  </div>
+</nav>

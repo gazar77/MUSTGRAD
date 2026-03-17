@@ -1,1 +1,106 @@
-<p>admin-dashboard works!</p>
+<div class="admin-dashboard">
+  <header class="dashboard-header">
+    <div class="title-meta">
+      <h1>مرحباً، {{ currentUser?.name }}</h1>
+      <p>إليك نظرة عامة على نشاط المنصة اليوم.</p>
+    </div>
+    <div class="date-display">
+      <i class="fas fa-calendar-day"></i>
+      <span>{{ today | date:'fullDate' }}</span>
+    </div>
+  </header>
+
+  <!-- Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat-card blue">
+      <div class="icon"><i class="fas fa-lightbulb"></i></div>
+      <div class="info">
+        <h3>54</h3>
+        <p>مشروع متاح</p>
+      </div>
+      <div class="trend positive"><i class="fas fa-arrow-up"></i> 12%</div>
+    </div>
+    <div class="stat-card green">
+      <div class="icon"><i class="fas fa-users"></i></div>
+      <div class="info">
+        <h3>1,240</h3>
+        <p>طالب مسجل</p>
+      </div>
+      <div class="trend positive"><i class="fas fa-arrow-up"></i> 5%</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="icon"><i class="fas fa-file-signature"></i></div>
+      <div class="info">
+        <h3>12</h3>
+        <p>طلب براءة اختراع</p>
+      </div>
+      <div class="trend neutral">0%</div>
+    </div>
+    <div class="stat-card purple">
+      <div class="icon"><i class="fas fa-calendar-check"></i></div>
+      <div class="info">
+        <h3>8</h3>
+        <p>فعاليات قادمة</p>
+      </div>
+      <div class="trend positive"><i class="fas fa-plus"></i> 2</div>
+    </div>
+  </div>
+
+  <div class="dashboard-content-grid">
+    <!-- Recent Activity -->
+    <div class="content-card recent-activity scrollable">
+      <div class="card-header">
+        <h3>آخر التحديثات</h3>
+        <button class="view-all">عرض الكل</button>
+      </div>
+      <div class="activity-list">
+        <div class="activity-item">
+          <div class="avatar"><i class="fas fa-plus-circle"></i></div>
+          <div class="details">
+            <p>تم إضافة <strong>فكرة مشروع جديدة</strong> في مجال الذكاء الاصطناعي</p>
+            <span>منذ 10 دقائق</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="avatar edit"><i class="fas fa-edit"></i></div>
+          <div class="details">
+            <p>تم تعديل <strong>جدول المناقشات</strong> للمجموعة الثالثة</p>
+            <span>منذ ساعة</span>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="avatar delete"><i class="fas fa-trash-alt"></i></div>
+          <div class="details">
+            <p>تم حذف <strong>نموذج قديم</strong> من مكتبة النماذج</p>
+            <span>منذ 3 ساعات</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Management -->
+    <div class="content-card quick-links">
+      <div class="card-header">
+        <h3>روابط سريعة</h3>
+      </div>
+      <div class="links-grid">
+        <button routerLink="/admin/manage/ideas" class="q-link">
+          <i class="fas fa-plus"></i>
+          <span>إضافة مشروع</span>
+        </button>
+        <button routerLink="/admin/manage/news" class="q-link">
+          <i class="fas fa-bullhorn"></i>
+          <span>تحديث الأخبار</span>
+        </button>
+        <button routerLink="/admin/manage/events" class="q-link">
+          <i class="fas fa-calendar-plus"></i>
+          <span>تنظيم فعالية</span>
+        </button>
+        <button routerLink="/admin/manage/templates" class="q-link">
+          <i class="fas fa-file-upload"></i>
+          <span>رفع نموذج</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

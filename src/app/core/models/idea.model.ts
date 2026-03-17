@@ -6,7 +6,7 @@ export interface Idea {
     difficulty: 'Easy' | 'Medium' | 'Hard';
     requiredSkills: string[];
     maxTeamSize: number;
-    supervisorDoctorId: number;
+    supervisorDoctorId?: number;
     supervisorName: string;
     createdAt: Date;
     status: 'Open' | 'Reserved' | 'Approved' | 'Closed';

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IdeaService } from '../../../core/services/idea.service';
 import { Idea, ProjectCategory } from '../../../core/models/idea.model';
+import { AuthMockService } from '../../../core/services/auth-mock.service';
+import { User } from '../../../core/models/user.model';
 
 @Component({
   selector: 'app-idea-list',
@@ -13,6 +15,7 @@ export class IdeaListComponent implements OnInit {
   searchQuery: string = '';
   selectedCategory: string = '';
   selectedStatus: string = '';
+  currentUser: User | null = null;
 
   categories: ProjectCategory[] = [
     'تطوير مواقع ويب',
@@ -27,12 +30,16 @@ export class IdeaListComponent implements OnInit {
     'معالجة اللغة الطبيعية'
   ];
 
-  constructor(private ideaService: IdeaService) { }
+  constructor(private ideaService: IdeaService, private authService: AuthMockService) { }
 
   ngOnInit(): void {
     this.ideaService.getIdeas().subscribe(ideas => {
       this.allIdeas = ideas;
       this.filteredIdeas = ideas;
+    });
+
+    this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
     });
   }
 

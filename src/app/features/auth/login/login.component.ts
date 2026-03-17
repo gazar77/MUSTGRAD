@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthMockService } from '../../../core/services/auth-mock.service';
 
 @Component({
@@ -10,37 +10,47 @@ import { AuthMockService } from '../../../core/services/auth-mock.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  isLoading = false;
+  loading = false;
+  submitted = false;
   error = '';
 
   constructor(
-    private fb: FormBuilder,
-    private authService: AuthMockService,
-    private router: Router
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthMockService
   ) {
-    this.loginForm = this.fb.group({
+    this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]]
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   get f() { return this.loginForm.controls; }
 
   onSubmit(): void {
-    if (this.loginForm.invalid) return;
+    this.submitted = true;
 
-    this.isLoading = true;
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    this.loading = true;
     this.authService.login(this.f['email'].value, this.f['password'].value)
       .subscribe({
-        next: () => {
-          this.router.navigate(['/dashboard']);
+        next: (res) => {
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'];
+          if (res.user.role === 'Admin') {
+            this.router.navigateByUrl(returnUrl || '/admin');
+          } else {
+            this.router.navigateByUrl(returnUrl || '/dashboard');
+          }
         },
         error: (err) => {
-          this.error = 'فشل تسجيل الدخول. تأكد من البيانات.';
-          this.isLoading = false;
+          this.error = 'البريد الإلكتروني أو كلمة المرور غير صحيحة';
+          this.loading = false;
         }
       });
   }

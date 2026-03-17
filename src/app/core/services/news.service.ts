@@ -38,4 +38,10 @@ export class NewsService {
   getNews(): Observable<NewsItem[]> {
     return of(this.mockNews);
   }
+
+  addNews(news: NewsItem): Observable<NewsItem> {
+    const newItem = { ...news, id: this.mockNews.length + 1, date: new Date() };
+    this.mockNews.unshift(newItem);
+    return of(newItem);
+  }
 }
